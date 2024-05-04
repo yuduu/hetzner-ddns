@@ -1,0 +1,5 @@
+.env
+.vscode
+app/config/.config
+DDnsSetting
+__pycache__

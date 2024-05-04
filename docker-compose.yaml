@@ -1,0 +1,13 @@
+services:
+  ddns-server:
+    image: python:3.12-alpine
+    working_dir: /ddns
+    env_file:
+      - env
+    ports:
+      - 8042:8042
+    volumes:
+      - .:/ddns
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt
+      && uvicorn app.main:app --port 8042 --host 0.0.0.0 --reload"
